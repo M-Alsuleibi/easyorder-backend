@@ -1,6 +1,4 @@
-node_modules
-dist
-.env.dev
-.env.prod
-.env.test
-*.log
+.env*
+/node_modules
+/dist
+/log
