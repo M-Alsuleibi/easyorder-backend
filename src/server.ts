@@ -6,23 +6,29 @@ import {
   ProdDataSource,
 } from "./configs/database";
 
-const envFile =
-  process.env.NODE_ENV === "production"
-    ? ".env.prod"
-    : process.env.NODE_ENV === "test"
-      ? ".env.test"
-      : ".env.dev";
+let envFile;
 
-dotenv.config({ path: envFile });
+if (process.env.NODE_ENV === "production") {
+  envFile = ".env.prod";
+} else if (process.env.NODE_ENV === "test") {
+  envFile = ".env.test";
+} else {
+  envFile = ".env.dev";
+}
+
+dotenv.config({ path: envFile, override: true });
 
 const PORT = process.env.PORT || 3000;
 
-const AppDataSource =
-  process.env.NODE_ENV === "production"
-    ? ProdDataSource
-    : process.env.NODE_ENV === "test"
-      ? TestDataSource
-      : DevDataSource;
+let AppDataSource;
+
+if (process.env.NODE_ENV === "production") {
+  AppDataSource = ProdDataSource;
+} else if (process.env.NODE_ENV === "test") {
+  AppDataSource = TestDataSource;
+} else {
+  AppDataSource = DevDataSource;
+}
 
 AppDataSource.initialize()
   .then(() => {
@@ -35,5 +41,3 @@ AppDataSource.initialize()
   .catch((err) => {
     console.error("Database connection failed:", err);
   });
-
-//app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

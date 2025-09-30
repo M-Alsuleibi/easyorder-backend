@@ -42,7 +42,7 @@ function checkEnvVariables(name: string): string {
   const value = process.env[name];
   if (!value) {
     throw new Error(
-      `Environment variable ${name} is required and cannot be empty.`
+      `${name} is required and cannot be empty.`
     );
   }
   return value;
