@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --watch src --ext ts --exec ts-node src/server.ts",
     "test": "cross-env NODE_ENV=test ts-node src/server.ts",
-    "build": "tsc",
     "start": "npm run build && cross-env NODE_ENV=production node dist/server.js",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "build": "npm run clean && tsc",
+    "clean": "rimraf dist && rimraf scratch && rimraf logs"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,7 @@
     "cross-env": "^10.1.0",
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   },
@@ -32,6 +34,7 @@
     "morgan": "^1.10.1",
     "pg": "^8.16.3",
     "reflect-metadata": "^0.2.2",
+    "typeorm": "^0.3.27",
     "winston": "^3.18.1"
   }
 }
