@@ -23,11 +23,11 @@ function checkEnvVariables(name: string): string {
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: process.env.DB_HOST || "localhost",
+  host: process.env.POSTGRES_USER || "localhost",
   port: Number(process.env.DB_PORT) || 5432,
   username: checkEnvVariables("DB_USERNAME"),
-  password: checkEnvVariables("DB_PASSWORD"),
-  database: process.env.DB_NAME || "easyorder",
+  password: checkEnvVariables("POSTGRES_PASSWORD"),
+  database: checkEnvVariables("POSTGRES_DB"),
   synchronize: false,
   entities: [User],
   migrations: ["src/database/migrations/**/*.ts"],
