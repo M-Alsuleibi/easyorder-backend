@@ -4,6 +4,7 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  DeleteDateColumn,
 } from "typeorm";
 
 @Entity("users")
@@ -26,7 +27,7 @@ export class User {
   @Column({ type: "varchar", length: 255 })
   address!: string;
 
-  @CreateDateColumn()
+  @DeleteDateColumn()
   deletedAt?: Date;
 
   @CreateDateColumn()
