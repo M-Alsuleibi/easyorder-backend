@@ -1,31 +1,28 @@
-## ⚡ How to Start
+# 🚀 EasyOrder Backend with Docker
 
-### 1. Development (default)
+## Start Services
 
-Runs **backend + dev DB**:
+### Development (Backend + Dev DB)
 
 ```bash
 docker compose up
 ```
 
-* Backend will wait for `postgres-dev` to be healthy before starting.
-* Connect to dev database at: `localhost:5432` (username/password from `.env.dev`).
+- Backend at: `http://localhost:3000`
+- Dev DB at: `localhost:5432` (credentials in `.env.dev`)
 
-### 2. Testing
-
-Runs **backend + test DB**:
+### Testing (Backend + Test DB)
 
 ```bash
 docker compose --profile test up
 ```
 
-* Backend will use `.env.dev` by default.
-* If you want it to use test DB credentials, update `backend` service’s `env_file` to `.env.test` before starting.
-* Connect to test database at: `localhost:5433` (username/password from `.env.test`).
+- Backend at: `http://localhost:3000`
+- Test DB at: `localhost:5433` (credentials in `.env.test`)
 
 ---
 
-### 3. Rebuild Containers
+## Rebuild Containers
 
 If you change code or Dockerfile:
 
@@ -35,16 +32,34 @@ docker compose up --build
 
 ---
 
-### 4. Stop Containers
-
-Stop all running containers:
+## Stop Services
 
 ```bash
 docker compose down
 ```
 
-* Use `-v` to remove associated volumes if you want a clean DB:
+Remove DB volumes (fresh databases):
 
 ```bash
 docker compose down -v
+```
+
+---
+
+## 🛠 Troubleshooting
+
+### ❌ Error: `failed to set up container networking: network <id> not found`
+
+This happens when Docker tries to reuse an old network that no longer exists.
+Fix it with:
+
+```bash
+# Stop and remove containers, networks, volumes, and orphans
+docker compose down -v --remove-orphans
+
+# Remove dangling/unused networks
+docker network prune -f
+
+# Rebuild and start fresh
+docker compose --profile test up --build
 ```
