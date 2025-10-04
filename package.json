@@ -4,13 +4,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --watch src --ext ts --exec ts-node src/server.ts",
-    "test": "cross-env NODE_ENV=test ts-node src/server.ts",
     "start": "npm run build && cross-env NODE_ENV=production node dist/server.js",
     "format": "prettier --write .",
     "build": "npm run clean && tsc",
     "clean": "rimraf dist && rimraf scratch && rimraf logs",
     "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix"
+    "lint:fix": "eslint . --ext .ts --fix",
+    "test": "jest",
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage"
   },
   "keywords": [],
   "author": "",
