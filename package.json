@@ -11,9 +11,10 @@
     "clean": "rimraf dist && rimraf scratch && rimraf logs",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
-    "migration:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate -d src/configs/database.ts",
-    "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run -d src/configs/database.ts",
-    "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert -d src/configs/database.ts"
+    "migration:create": "typeorm-ts-node-commonjs migration:create",
+    "migration:generate": "typeorm-ts-node-commonjs migration:generate -d src/configs/database.ts",
+    "migration:run": "typeorm-ts-node-commonjs migration:run -d src/configs/database.ts",
+    "migration:revert": "typeorm-ts-node-commonjs migration:revert -d src/configs/database.ts"
   },
   "keywords": [],
   "author": "",
