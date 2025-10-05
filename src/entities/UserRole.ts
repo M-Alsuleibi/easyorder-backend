@@ -6,6 +6,7 @@ import {
   UpdateDateColumn,
   ManyToOne,
   JoinColumn,
+  Index,
 } from "typeorm";
 import { User } from "./User";
 import { Tenant } from "./Tenant";
@@ -16,6 +17,7 @@ export enum Role {
 }
 
 @Entity("user_roles")
+@Index(["userId", "tenantId"], { unique: true })
 export class UserRole {
   @PrimaryGeneratedColumn("uuid")
   id!: string;
