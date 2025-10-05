@@ -10,7 +10,11 @@
     "build": "npm run clean && tsc",
     "clean": "rimraf dist && rimraf scratch && rimraf logs",
     "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix"
+    "lint:fix": "eslint . --ext .ts --fix",
+    "migration:create": "typeorm-ts-node-commonjs migration:create",
+    "migration:generate": "typeorm-ts-node-commonjs migration:generate -d src/configs/database.ts",
+    "migration:run": "typeorm-ts-node-commonjs migration:run -d src/configs/database.ts",
+    "migration:revert": "typeorm-ts-node-commonjs migration:revert -d src/configs/database.ts"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +30,7 @@
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
+    "typeorm": "^0.3.27",
     "typescript": "^5.9.2"
   },
   "dependencies": {
