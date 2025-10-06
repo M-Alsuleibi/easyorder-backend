@@ -12,7 +12,6 @@ services:
     depends_on:
       postgres-dev:
         condition: service_healthy
-
   postgres-dev:
     image: postgres:16
     container_name: easyorder-postgres-dev
