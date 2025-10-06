@@ -7,8 +7,8 @@ services:
     env_file:
       - .env.dev
     volumes:
-      - ./:/src
-    restart: unless-stopped
+      - ./src:/src/src
+      - /src/node_modules
     depends_on:
       postgres-dev:
         condition: service_healthy
