@@ -1,9 +1,9 @@
 import { AppDataSource } from "./configs/database";
 
-export const initializeApp = async () => {
+export const initializeApp = async (): Promise<void> => {
   try {
     await AppDataSource.initialize();
-    console.log("Database connected successfully!");
+    console.warn("Database connected successfully!");
   } catch (err) {
     console.error("Database initialization failed:");
     console.error(err);

@@ -1,9 +1,9 @@
 import app from "./app";
 import { initializeApp } from "./index";
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT ?? 3000;
 
-const startServer = async () => {
+const startServer = async (): Promise<void> => {
   await initializeApp();
 
   app.listen(PORT, () => {
@@ -11,4 +11,4 @@ const startServer = async () => {
   });
 };
 
-startServer();
+void startServer();
