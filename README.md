@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 EasyOrder Backend with Docker
 
 ## Start Services
@@ -62,4 +63,27 @@ docker network prune -f
 
 # Rebuild and start fresh
 docker compose --profile test up --build
+=======
+# EasyOrder Backend
+
+## Code Quality
+
+This project uses automated code quality checks on every pull request.
+
+### Checks Running on PRs:
+
+- ✅ **ESLint** - Enforces TypeScript coding standards
+- ✅ **Prettier** - Verifies code formatting
+
+### Before Creating a PR:
+
+```bash
+
+npm run format
+
+npm run lint
+
+# Auto-fix fixable issues
+npm run lint:fix
+>>>>>>> FC-27
 ```

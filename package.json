@@ -29,9 +29,18 @@
     "@types/jest": "^30.0.0",
     "@types/morgan": "^1.9.10",
     "@types/node": "^24.5.2",
+<<<<<<< HEAD
     "@types/pg": "^8.15.5",
     "cross-env": "^10.1.0",
     "jest": "^30.2.0",
+=======
+    "@typescript-eslint/eslint-plugin": "^8.45.0",
+    "@typescript-eslint/parser": "^8.45.0",
+    "cross-env": "^10.1.0",
+    "eslint": "^9.37.0",
+    "eslint-plugin-import": "^2.32.0",
+    "jiti": "^2.6.1",
+>>>>>>> FC-27
     "nodemon": "^3.1.10",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
