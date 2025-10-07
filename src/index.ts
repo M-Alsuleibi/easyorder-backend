@@ -10,4 +10,3 @@ export const initializeApp = async (): Promise<void> => {
     process.exit(1);
   }
 };
-   
